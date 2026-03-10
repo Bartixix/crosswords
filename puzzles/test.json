@@ -1,0 +1,21 @@
+{
+  "Page": 1,
+  "SizeX": 20,
+  "SizeY": 15,  
+  "Content": [
+    {
+        "Id": 1,
+        "Horizontal": true,
+        "RootX": 0,
+        "RootY": 2,
+        "Text": "TeTt1"
+    },
+    {
+        "Id": 2,
+        "Horizontal": false,
+        "RootX": 3,
+        "RootY": 1,
+        "Text": "Text2"
+    }
+  ]
+}
