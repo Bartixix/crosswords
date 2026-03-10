@@ -1,13 +1,20 @@
-const puzzleId = "puzzle";
-
 let height;
 let width;
 let cells;
 
-let puzzleRoot = document.getElementById(puzzleId);
+let puzzleRoot = document.getElementById("puzzle");
+let sidebarRoot = document.getElementById("sidebar");
+
+let sidebarVisible = false;
+
+document
+  .getElementById("sidebar-btn")
+  .addEventListener("click", () => ToggleSidebar());
+
+PopulateSidebar();
 
 async function PopulateSidebar() {
-  let root = document.getElementById("sidebar");
+  let sidebarRoot = document.getElementById("sidebar");
   let response = await fetch("./puzzles/list.json");
 
   let json = await response.json();
@@ -22,7 +29,7 @@ async function PopulateSidebar() {
     elem.addEventListener("click", () => DrawPuzzle(src));
     elem.innerText = text;
 
-    root.appendChild(elem);
+    sidebarRoot.appendChild(elem);
   }
 }
 
@@ -32,7 +39,7 @@ async function DrawPuzzle(source) {
   let response = await fetch(source);
   let json = await response.json();
 
-  document.getElementById("current-puzzle").innerText = json.Page;
+  document.getElementById("current-puzzle-id").innerText = json.Page;
 
   height = json.SizeY;
   width = json.SizeX;
@@ -111,4 +118,12 @@ function Reveal(id) {
   }
 }
 
-PopulateSidebar();
+function ToggleSidebar() {
+  if (sidebarVisible) {
+    sidebarRoot.setAttribute("data-show", "false");
+    sidebarVisible = false;
+  } else {
+    sidebarRoot.setAttribute("data-show", "true");
+    sidebarVisible = true;
+  }
+}

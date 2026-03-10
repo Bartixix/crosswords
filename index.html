@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,12 +11,30 @@
   <body>
     <div id="main">
       <div id="navbar">
-        <div id="sidebar-btn"></div>
-        <div id="current-puzzle"></div>
+        <svg
+          id="sidebar-btn"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-list"
+          viewBox="0 0 16 16"
+          scale="2"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+          />
+        </svg>
+        <div id="navbar-fill"></div>
+        <div id="current-puzzle">
+          Strona:
+          <span id="current-puzzle-id"></span>
+        </div>
       </div>
       <div id="content">
         <div id="sidebar">
-          <div class="header">Wybierz:</div>
+          <div class="header">Wybierz stronę:</div>
         </div>
         <div id="puzzle-container">
           <div id="puzzle"></div>
