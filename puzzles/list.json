@@ -1,9 +1,1 @@
-{
-  "Puzzles": [
-    {
-      "Id": 1,
-      "Page": 1,
-      "Src": "./puzzles/test.json"
-    }
-  ]
-}
+[{"Id":13,"Page":13,"Src":".\\puzzles\\13.json"}]

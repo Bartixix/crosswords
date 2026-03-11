@@ -1,0 +1,41 @@
+{
+  "Page": 13,
+  "SizeX": 16,
+  "SizeY": 15,
+  "Content": [
+    {
+      "Id": 1,
+      "Horizontal": false,
+      "RootX": 12,
+      "RootY": 0,
+      "Text": "ESSZIMMER"
+    },
+    {
+      "Id": 2,
+      "Horizontal": false,
+      "RootX": 15,
+      "RootY": 1,
+      "Text": "ZIMMERDECKE"
+    },
+    {
+      "Id": 3,
+      "Horizontal": false,
+      "RootX": 4,
+      "RootY": 3,
+      "Text": "FUSSBODEN"
+    },
+    { "Id": 4, "Horizontal": false, "RootX": 6, "RootY": 3, "Text": "DACH" },
+    {
+      "Id": 5,
+      "Horizontal": true,
+      "RootX": 4,
+      "RootY": 6,
+      "Text": "SCHLAFZIMMER"
+    },
+    { "Id": 6, "Horizontal": false, "RootX": 10, "RootY": 8, "Text": "TUER" },
+    { "Id": 7, "Horizontal": true, "RootX": 6, "RootY": 8, "Text": "FENSTER" },
+    { "Id": 8, "Horizontal": true, "RootX": 1, "RootY": 9, "Text": "WAND" },
+    { "Id": 9, "Horizontal": true, "RootX": 0, "RootY": 11, "Text": "KAMIN" },
+    { "Id": 10, "Horizontal": true, "RootX": 8, "RootY": 11, "Text": "TOR" }
+  ]
+}

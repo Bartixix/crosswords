@@ -5,8 +5,6 @@ let cells;
 let puzzleRoot = document.getElementById("puzzle");
 let sidebarRoot = document.getElementById("sidebar");
 
-let sidebarVisible = false;
-
 document
   .getElementById("sidebar-btn")
   .addEventListener("click", () => ToggleSidebar());
@@ -19,9 +17,9 @@ async function PopulateSidebar() {
 
   let json = await response.json();
 
-  for (let i = 0; i < json.Puzzles.length; i++) {
-    let text = json.Puzzles[i].Page;
-    let src = json.Puzzles[i].Src;
+  for (let i = 0; i < json.length; i++) {
+    let text = json[i].Page;
+    let src = json[i].Src;
 
     let elem = document.createElement("button");
     elem.className = "puzzle-select";
@@ -46,21 +44,24 @@ async function DrawPuzzle(source) {
 
   cells = Array(height * width);
 
-  puzzleRoot.style.gridTemplateRows = `repeat(${width + 1}, 2em)`;
-  puzzleRoot.style.gridTemplateColumns = `repeat(${height + 1}, 2em)`;
+  puzzleRoot.style.gridTemplateColumns = `repeat(${width + 1}, 2em)`;
+  puzzleRoot.style.gridTemplateRows = `repeat(${height + 1}, 2em)`;
 
   for (let i = 0; i < json.Content.length; i++) {
     let key = json.Content[i];
 
-    let x = key.RootX;
-    let y = key.RootY;
+    let x = key.RootX + 1;
+    let y = key.RootY + 1;
 
-    PrintOrderingCell(key.Id, y + 1, x + 1);
+    if (key.Horizontal) y++;
+    else x++;
+
+    PrintOrderingCell(key.Id, y, x);
     for (let j = 0; j < key.Text.length; j++) {
       if (key.Horizontal) x++;
       else y++;
 
-      PrintKeyCell(key.Text[j], y + 1, x + 1, key.Id);
+      PrintKeyCell(key.Text[j], y, x, key.Id);
     }
   }
 }
@@ -119,11 +120,7 @@ function Reveal(id) {
 }
 
 function ToggleSidebar() {
-  if (sidebarVisible) {
+  if (sidebarRoot.getAttribute("data-show") == "true")
     sidebarRoot.setAttribute("data-show", "false");
-    sidebarVisible = false;
-  } else {
-    sidebarRoot.setAttribute("data-show", "true");
-    sidebarVisible = true;
-  }
+  else sidebarRoot.setAttribute("data-show", "true");
 }
